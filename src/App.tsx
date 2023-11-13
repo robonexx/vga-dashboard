@@ -10,6 +10,7 @@ import SearchBar from './components/searchbar/SearchBar';
 import Icon from './components/icons/Icon';
 import Bell from './components/icons/Bell';
 import PaperPlane from './components/icons/PaperPlane';
+import ProfileImage from './components/profileimage/ProfileImage';
 
 const Main = styled.main`
   position: relative;
@@ -80,11 +81,11 @@ function App() {
         console.log(error + 'something went wrong');
       }
     };
-  
+
     fetchData();
   }, []);
 
-  console.log(games)
+  console.log(games);
 
   return (
     <BrowserRouter>
@@ -96,16 +97,17 @@ function App() {
             handleOnSubmit={handleOnSubmit}
           />
           <div>
-          <Icon
-          variant='secondary'
-          onClick={() => console.log('hello world')}
-          iconSvg={<Bell />}
-        />
-          <Icon
-          variant='tertiary'
-          onClick={() => console.log('hello world')}
-          iconSvg={<PaperPlane />}
-        />
+            <Icon
+              variant='secondary'
+              onClick={() => console.log('hello world')}
+              iconSvg={<Bell />}
+            />
+            <Icon
+              variant='tertiary'
+              onClick={() => console.log('hello world')}
+              iconSvg={<PaperPlane />}
+            />
+            <ProfileImage />
           </div>
         </Header>
         <Sidebar />
