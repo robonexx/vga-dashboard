@@ -1,8 +1,9 @@
 import { FC } from 'react';
 import styled from 'styled-components';
+import Logo from '../Logo/Logo';
 
 const SidebarWrapper = styled.div`
-grid-area: aside;
+  grid-area: aside;
   padding: 1.75rem;
   width: 100%;
   height: 100svh;
@@ -22,7 +23,11 @@ grid-area: aside;
 `;
 
 const Sidebar: FC = () => {
-  return <SidebarWrapper></SidebarWrapper>;
+  return (
+    <SidebarWrapper>
+      <Logo />
+    </SidebarWrapper>
+  );
 };
 
 export default Sidebar;
