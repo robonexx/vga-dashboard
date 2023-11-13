@@ -13,6 +13,7 @@ const StyledIcon = styled.div<{ variant?: string }>`
   border-radius: 50%;
   display: grid;
   place-content: center;
+  transition: all 0.3s ease;
 
   ${({ variant }) => {
     switch (variant) {
@@ -21,7 +22,7 @@ const StyledIcon = styled.div<{ variant?: string }>`
         width: 3rem;
         height: 3rem;
         background-color: transparent;
-        transition: all 0.3s ease;
+       
         &:hover {
         cursor: pointer;
         background-color: #3DBDA7;
@@ -46,15 +47,17 @@ const StyledIcon = styled.div<{ variant?: string }>`
       case 'secondary':
         return `
         width: 2.625rem;
-        height: 2.375rem;
+        height: 2.675rem;
 
     @media screen and (min-width: 769px) {
           width: 3.438rem;
           height: 3.125rem;
         }
-        ackground: linear-gradient(to top, #1D1E22,#393939);
+        background: linear-gradient(to top, #1D1E22,#393939);
 
     &:hover {
+      background: #424242;
+
       cursor: pointer;
     }
     > svg {
@@ -65,7 +68,7 @@ const StyledIcon = styled.div<{ variant?: string }>`
       case 'tertiary':
         return `
         width: 2.625rem;
-        height: 2.375rem;
+        height: 2.675rem;
 
     @media screen and (min-width: 769px) {
           width: 3.438rem;
@@ -74,6 +77,7 @@ const StyledIcon = styled.div<{ variant?: string }>`
         background: linear-gradient(to top, #3DBDA7,#278a79);
 
     &:hover {
+      background: #47c9b3;
       cursor: pointer;
     }
     &>img {

@@ -22,6 +22,10 @@ const StyledHeader = styled.header`
     height: 3.125rem;
     margin: 2.5rem auto 3rem;
   }
+
+  > div {
+    display: flex;
+  }
 `;
 
 type HeaderType = {
