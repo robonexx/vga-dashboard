@@ -17,14 +17,14 @@ const Main = styled.main`
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-template-areas:
-    'aside header header header header header header'
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard'
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard'
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard'
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard';
+    'aside header header header header header header header'
+    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard'
+    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard'
+    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard '
+    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard';
 `;
 
 const API_URL: string = import.meta.env.VITE_APP_API_URL as string;

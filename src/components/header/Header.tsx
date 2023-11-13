@@ -25,6 +25,7 @@ const StyledHeader = styled.header`
 
   > div {
     display: flex;
+    padding-right: 2.875rem;
   }
 `;
 

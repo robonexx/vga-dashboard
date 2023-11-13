@@ -6,6 +6,7 @@ const DashboardContainer = styled.div`
   position: relative;
   width: fit-content;
   height: 100%;
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
   gap: 2.875rem;
@@ -23,8 +24,8 @@ const ProductCard = styled.div`
 `;
 
 const GamingGear = styled.div`
-  width: 26rem;
   min-width: 25rem;
+  width: 100%;
   max-height: 26.25rem;
   grid-area: gaming-gear;
   /*  grid-column: span 3; */
@@ -33,6 +34,7 @@ const GamingGear = styled.div`
 
 const RecentlyPlayed = styled.div`
   min-width: 25rem;
+  width: 100%;
   max-height: 26.25rem;
   grid-area: recently-played;
   /*   grid-column: span 3; */
@@ -41,7 +43,7 @@ const RecentlyPlayed = styled.div`
 
 const DashboardSidebar = styled.div`
   padding: 2.875rem;
-  width: 20rem;
+  min-width: 20rem;
   width: 100%;
   grid-area: dashboard-sidebar;
   grid-column: span 3;
