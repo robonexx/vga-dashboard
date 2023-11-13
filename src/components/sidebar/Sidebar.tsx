@@ -2,6 +2,14 @@ import { FC } from 'react';
 import styled from 'styled-components';
 import Logo from '../Logo/Logo';
 
+// icons
+import Icon from '../icons/Icon';
+import HomeIcon from '../icons/HomeIcon';
+import FriendsIcon from '../icons/FriendsIcon';
+import ChatIcon from '../icons/ChatIcon';
+import ShopIcon from '../icons/ShopIcon';
+import StarIcon from '../icons/StarIcon';
+
 const SidebarWrapper = styled.div`
   grid-area: aside;
   padding: 1.75rem;
@@ -22,10 +30,47 @@ const SidebarWrapper = styled.div`
   }
 `;
 
+const SideNav = styled.nav`
+  margin-top: 30%;
+  width: 100%;
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+
 const Sidebar: FC = () => {
   return (
     <SidebarWrapper>
       <Logo />
+      <SideNav>
+        <Icon
+          variant='primary'
+          onClick={() => console.log('hello world')}
+          iconSvg={<HomeIcon />}
+        />
+        <Icon
+          variant='primary'
+          onClick={() => console.log('hello world')}
+          iconSvg={<FriendsIcon />}
+        />
+        <Icon
+          variant='primary'
+          onClick={() => console.log('hello world')}
+          iconSvg={<ChatIcon />}
+        />
+        <Icon
+          variant='primary'
+          onClick={() => console.log('hello world')}
+          iconSvg={<ShopIcon />}
+        />
+        <Icon
+          variant='primary'
+          onClick={() => console.log('hello world')}
+          iconSvg={<StarIcon />}
+        />
+      </SideNav>
     </SidebarWrapper>
   );
 };
