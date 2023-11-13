@@ -1,4 +1,4 @@
-/* import { useState } from 'react' */
+import { useState, useEffect, ChangeEvent, FormEvent } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
 import styled from 'styled-components';
@@ -6,8 +6,7 @@ import Dashboard from './pages/Dashboard';
 import Gamedetails from './pages/Gamedetails';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/Sidebar';
-/* import { GlobalStyles } from './styles/GlobalStyles';
-import { darkTheme } from './styles/GlobalStyles'; */
+import SearchBar from './components/searchbar/SearchBar';
 
 const Main = styled.main`
   position: relative;
@@ -24,13 +23,75 @@ const Main = styled.main`
     'aside dashboard dashboard dashboard dashboard dashboard dashboard';
 `;
 
+const API_URL: string = import.meta.env.VITE_APP_API_URL as string;
+const API_KEY: string = import.meta.env.VITE_APP_API_KEY as string;
+const API_GAMES: string = `${API_URL}?key=${API_KEY}`;
+
 function App() {
+  const [games, setGames] = useState<unknown[]>([]);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [isLoading, setLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState<string>('');
+
+  const getGames = async (URL: string) => {
+    try {
+      const res = await fetch(URL);
+      const data = await res.json();
+      if (!res.ok) {
+        console.log('error getting data');
+        return;
+      } else {
+        setGames(data.results);
+        console.log(data.results);
+      }
+    } catch (error) {
+      console.log(error + 'something went wrong');
+    }
+  };
+
+  const handleOnSubmit = (e: FormEvent) => {
+    e.preventDefault();
+    if (searchQuery) {
+      getGames(`${API_URL}?key=${API_KEY}&search=${searchQuery}`);
+      setSearchQuery('');
+    }
+  };
+
+  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await fetch(API_GAMES);
+        const data = await res.json();
+        if (!res.ok) {
+          console.log('error getting data');
+          return;
+        } else {
+          setGames(data.results);
+          setLoading(false);
+        }
+      } catch (error) {
+        console.log(error + 'something went wrong');
+      }
+    };
+  
+    fetchData();
+  }, []);
+
+  console.log(games)
+
   return (
     <BrowserRouter>
-      {/*  <GlobalStyles theme={darkTheme} /> */}
       <Main>
         <Header>
-          <p>Icons</p>
+          <SearchBar
+            searchQuery={searchQuery}
+            handleOnChange={handleOnChange}
+            handleOnSubmit={handleOnSubmit}
+          />
         </Header>
         <Sidebar />
         <Routes>
