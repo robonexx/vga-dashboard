@@ -1,7 +1,11 @@
 - will add to this as i go, writing up from what i see i the desing and my ideas from there
 
+- [ ] Global styles
 - [ ] pages
 - [ ] header
+- [ ] searchbar
+- [ ] icons
+- [ ] profile image
 - [ ] sidebar
 - [ ] logo
 - [ ] buttons
