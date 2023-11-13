@@ -1,5 +1,20 @@
 - will add to this as i go, writing up from what i see i the desing and my ideas from there
 
+- [ ] pages
+- [ ] header
+- [ ] sidebar
+- [ ] logo
+- [ ] buttons
+- [ ] dashboard frame
+- [ ] main card (highlighted product)
+- [ ] secondary card (gaming gear)
+- [ ] recently played
+- [ ] medium cards (image)
+- [ ] rightside sidebar
+- [ ] small cards for library and online friends (image + title, subtitle, icon)
+- [ ] email card / container
+
+
 # pages (react-router-dom)
 Dashboard
 Game details
