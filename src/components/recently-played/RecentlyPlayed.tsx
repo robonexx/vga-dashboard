@@ -17,7 +17,6 @@ const Container = styled.div`
   width: 100%;
   height: 22.5rem;
   overflow: hidden;
-  pointer-events: none;
 
   & > .inner {
     position: relative;
@@ -26,17 +25,10 @@ const Container = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-y: scroll;
+    z-index: 10;
 
     &::-webkit-scrollbar {
       display: none;
-    }
-
-    & > img {
-      object-fit: cover;
-      object-position: center top;
-      :last-child {
-        object-position: top center;
-      }
     }
   }
 `;
@@ -47,8 +39,8 @@ const RecentlyPlayed: React.FC = () => {
     <Container>
       <h2>Recently Played</h2>
       <motion.div className='inner'>
-        {recentlyData.map(({ title, image }) => (
-          <SmallCard title={title} image={image} key={title} />
+        {recentlyData.map(({ title, image }, i) => (
+          <SmallCard title={title} image={image} key={i} />
         ))}
       </motion.div>
     </Container>

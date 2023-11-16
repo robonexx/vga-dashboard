@@ -16,7 +16,11 @@ const CardWrapper = styled.div`
   overflow: hidden;
   background-clip: padding-box;
   border: solid 4px transparent;
-  pointer-events: none;
+
+  &:hover {
+    cursor: pointer;
+    border: 2px solid #888;
+  }
 
   & > img {
     width: 100%;
@@ -24,11 +28,6 @@ const CardWrapper = styled.div`
     object-fit: cover;
     object-position: top center;
     opacity: 0.7;
-
-    :hover {
-    cursor: pointer;
-    border: 2px solid #888;
-  }
   }
 
   & > h2 {
