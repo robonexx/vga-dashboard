@@ -82,17 +82,20 @@ const AddToCardContainer = styled.div`
 `;
 
 interface CardProps {
-  cardBg: string;
-  cardCharacter: string;
+  bg: string;
+  character: string;
+  title: string;
+  price: number;
+  year: number;
 }
 
-const Card: React.FC<CardProps> = ({ cardBg, cardCharacter }) => {
+const Card: React.FC<CardProps> = ({ bg, character, title, price, year }) => {
   return (
     <AnimatePresence>
       <CardgameContainer>
         <motion.div>
           <motion.img
-            src={cardBg}
+            src={bg}
             alt=''
             initial={{ opacity: 0 }}
             animate={{ opacity: 0.4 }}
@@ -101,7 +104,7 @@ const Card: React.FC<CardProps> = ({ cardBg, cardCharacter }) => {
           />
         </motion.div>
         <motion.img
-          src={cardCharacter}
+          src={character}
           alt=''
           initial={{ opacity: 0, y: 40, x: 30 }}
           animate={{ opacity: 1, y: 0, x: 0 }}
@@ -110,18 +113,18 @@ const Card: React.FC<CardProps> = ({ cardBg, cardCharacter }) => {
         />
         <CardInfo>
           <div>
-            <CardYear>2020</CardYear>
+            <CardYear>{year}</CardYear>
             <motion.div
               initial={{ opacity: 0, x: -100 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 1 }}
             >
-              <CardTitle>Assassins creed valhalla</CardTitle>
+              <CardTitle>{title}</CardTitle>
             </motion.div>
           </div>
           <AddToCardContainer>
-            <span>29$</span>
+            <span>{price}$</span>
             <ShopNow />
           </AddToCardContainer>
         </CardInfo>
