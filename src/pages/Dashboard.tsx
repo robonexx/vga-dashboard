@@ -2,6 +2,7 @@ import { FC } from 'react';
 import styled from 'styled-components';
 
 import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard';
+import ProductCard from '../components/product-card/ProductCard';
 
 const DashboardContainer = styled.div`
   grid-area: dashboard;
@@ -19,20 +20,18 @@ const DashboardContainer = styled.div`
     'gaming-gear gaming-gear gaming-gear recently-played recently-played recently-played dashboard-sidebar dashboard-sidebar dashboard-sidebar';
 `;
 
-const ProductCard = styled.div`
+const Featured = styled.div`
   max-height: 20rem;
   grid-area: product-card;
-  /* grid-column: span 6; */
   background-color: transparent;
 `;
 
-const GamingGear = styled.div`
+const Products = styled.div`
   min-width: 25rem;
   width: 100%;
   max-height: 26.25rem;
   grid-area: gaming-gear;
-  /*  grid-column: span 3; */
-  background-color: #e0e0e0;
+  background-color: transparent;
 `;
 
 const RecentlyPlayed = styled.div`
@@ -57,13 +56,13 @@ const DashboardSidebar = styled.div`
 const Dashboard: FC = () => {
   return (
     <DashboardContainer>
-      <ProductCard>
+      <Featured>
         <FeaturedProductCard />
-      </ProductCard>
-      <GamingGear>
+      </Featured>
+      <Products>
         {/* Content for the Gaming Gear Card */}
-        <h2>Gaming Gear</h2>
-      </GamingGear>
+        <ProductCard />
+      </Products>
       <RecentlyPlayed>
         {/* Content for the Recently Played Card */}
         <h2>Recently Played</h2>
