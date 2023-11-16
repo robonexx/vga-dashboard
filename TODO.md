@@ -1,17 +1,17 @@
 - will add to this as i go, writing up from what i see i the desing and my ideas from there
 
-- [ ] Global styles
-- [ ] pages
-- [ ] header
-- [ ] searchbar
-- [ ] icons
-- [ ] profile image
-- [ ] sidebar
-- [ ] logo
+- [x] Global styles
+- [x] pages
+- [x] header
+- [x] searchbar
+- [x] icons
+- [x] profile image
+- [x] sidebar
+- [x] logo
 - [ ] buttons
-- [ ] dashboard frame
-- [ ] main card (highlighted product)
-- [ ] secondary card (gaming gear)
+- [x] dashboard frame
+- [x] main card (featured product card)
+- [x] secondary card (product card)
 - [ ] recently played
 - [ ] medium cards (image)
 - [ ] rightside sidebar
