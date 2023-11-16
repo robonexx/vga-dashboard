@@ -1,6 +1,8 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
+import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard'
+
 const DashboardContainer = styled.div`
   grid-area: dashboard;
   position: relative;
@@ -20,7 +22,7 @@ const ProductCard = styled.div`
   max-height: 20rem;
   grid-area: product-card;
   /* grid-column: span 6; */
-  background-color: #f0f0f0;
+  background-color: transparent;
 `;
 
 const GamingGear = styled.div`
@@ -55,8 +57,7 @@ const Dashboard: FC = () => {
   return (
     <DashboardContainer>
       <ProductCard>
-        {/* Content for the Product Card */}
-        <h2>Product Card</h2>
+        <FeaturedProductCard />
       </ProductCard>
       <GamingGear>
         {/* Content for the Gaming Gear Card */}
