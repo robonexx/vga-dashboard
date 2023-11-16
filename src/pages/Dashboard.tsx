@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import styled from 'styled-components';
 
-import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard'
+import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard';
 
 const DashboardContainer = styled.div`
   grid-area: dashboard;
@@ -11,6 +11,7 @@ const DashboardContainer = styled.div`
   width: 100%;
   display: grid;
   grid-template-columns: repeat(9, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 2.875rem;
   grid-template-areas:
     'product-card product-card product-card product-card product-card product-card dashboard-sidebar dashboard-sidebar dashboard-sidebar'

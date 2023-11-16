@@ -27,7 +27,7 @@ const cardData = [
 
 const CardContainer = styled.div`
   position: relative;
-  width: 53.125rem;
+  width: 100%;
   height: 20rem;
   border-radius: 3.125rem;
 `;
