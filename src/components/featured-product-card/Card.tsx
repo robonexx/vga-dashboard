@@ -27,7 +27,7 @@ const CardgameContainer = styled.div`
 const CardInfo = styled.div`
   margin: 1rem 0 3.5rem 4rem;
   padding: 1rem;
-  width: 50%;
+  width: 70vw;
   height: 100%;
   position: absolute;
   top: 0;
