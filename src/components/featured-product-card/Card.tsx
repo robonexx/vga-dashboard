@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import ShopNow from '../buttons/shop-now/ShopNow';
 
 const CardgameContainer = styled.div`
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -20,14 +20,14 @@ const CardgameContainer = styled.div`
   & > img {
     position: absolute;
     bottom: 0;
-    right: 2.5rem;
+    right: 20%;
   }
 `;
 
 const CardInfo = styled.div`
   margin: 1rem 0 3.5rem 4rem;
   padding: 1rem;
-  width: 70vw;
+  width: 50%;
   height: 100%;
   position: absolute;
   top: 0;
