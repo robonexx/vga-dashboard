@@ -46,7 +46,6 @@ function App() {
         return;
       } else {
         setGames(data.results);
-        console.log(data.results);
       }
     } catch (error) {
       console.log(error + 'something went wrong');
@@ -58,6 +57,7 @@ function App() {
     if (searchQuery) {
       getGames(`${API_URL}?key=${API_KEY}&search=${searchQuery}`);
       setSearchQuery('');
+      console.log(games);
     }
   };
 
@@ -85,7 +85,7 @@ function App() {
     fetchData();
   }, []);
 
-  console.log(games);
+ /*  console.log(games); */
 
   return (
     <BrowserRouter>

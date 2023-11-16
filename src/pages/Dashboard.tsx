@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard';
 import ProductCard from '../components/product-card/ProductCard';
+import RecentlyPlayed from '../components/recently-played/RecentlyPlayed';
 
 const DashboardContainer = styled.div`
   grid-area: dashboard;
@@ -34,13 +35,12 @@ const Products = styled.div`
   background-color: transparent;
 `;
 
-const RecentlyPlayed = styled.div`
+const RecentlyPlayedContainer = styled.div`
   min-width: 25rem;
   width: 100%;
   max-height: 26.25rem;
   grid-area: recently-played;
-  /*   grid-column: span 3; */
-  background-color: #d0d0d0;
+  background-color: transparent;
 `;
 
 const DashboardSidebar = styled.div`
@@ -60,13 +60,11 @@ const Dashboard: FC = () => {
         <FeaturedProductCard />
       </Featured>
       <Products>
-        {/* Content for the Gaming Gear Card */}
         <ProductCard />
       </Products>
-      <RecentlyPlayed>
-        {/* Content for the Recently Played Card */}
-        <h2>Recently Played</h2>
-      </RecentlyPlayed>
+      <RecentlyPlayedContainer>
+        <RecentlyPlayed />
+      </RecentlyPlayedContainer>
       <DashboardSidebar>
         {/* Content for the Sidebar */}
         <h2>Sidebar</h2>
