@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import LOGO from '../../assets/images/xbox_logo.png';
 
 const LogoWrapper = styled.div`
-  margin: 1rem 0;
+  margin: 0;
   width: 2.625rem;
   height: 2.625rem;
   display: grid;

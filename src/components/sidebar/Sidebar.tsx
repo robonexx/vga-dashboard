@@ -31,9 +31,9 @@ const SidebarWrapper = styled.div`
 `;
 
 const SideNav = styled.nav`
-  margin-top: 30%;
+  margin-top: 10vh;
   width: 100%;
-  height: 70%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
