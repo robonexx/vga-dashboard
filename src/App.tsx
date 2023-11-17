@@ -15,20 +15,31 @@ import Modal from './components/modal/Modal';
 import GamesList from './components/games-list/GamesList';
 import Loading from './components/loading/Loading';
 import { GameItemProps } from './types/Types';
+import RightSidebar from './components/right-sidebar/RightSidebar';
 
 const Main = styled.main`
   position: relative;
   width: 100%;
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 1fr);
   grid-template-areas:
-    'aside header header header header header header header'
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard'
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard'
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard '
-    'aside dashboard dashboard dashboard dashboard dashboard dashboard dashboard';
+    'aside header header header header header header'
+    'aside dashboard dashboard dashboard dashboard rightsidebar rightsidebar'
+    'aside dashboard dashboard dashboard dashboard rightsidebar rightsidebar'
+    'aside dashboard dashboard dashboard dashboard rightsidebar rightsidebar '
+    'aside dashboard dashboard dashboard dashboard  rightsidebar rightsidebar';
+`;
+
+const DashboardSidebar = styled.div`
+  max-height: 100vh;
+  padding: 0 2.875rem;
+  padding-bottom: 2.875rem;
+  min-width: 22.275rem;
+  width: 100%;
+  grid-area: rightsidebar;
+  background-color: transparent;
 `;
 
 const API_URL: string = import.meta.env.VITE_APP_API_URL as string;
@@ -138,6 +149,9 @@ function App() {
             }
           ></Modal>
         )}
+        <DashboardSidebar>
+          <RightSidebar />
+        </DashboardSidebar>
       </Main>
     </BrowserRouter>
   );

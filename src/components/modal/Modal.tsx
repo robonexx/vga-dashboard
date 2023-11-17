@@ -28,8 +28,8 @@ const CloseButton = styled.button`
   justify-content: center;
   outline: none;
   border: none;
-  top: 0;
-  right: 0;
+  top: 2rem;
+  right: 2rem;
   padding: 0.25rem;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.225);

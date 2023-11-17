@@ -18,12 +18,16 @@ const API_URL: string = import.meta.env.VITE_APP_API_URL as string;
 const API_KEY: string = import.meta.env.VITE_APP_API_KEY as string;
 
 const Details = styled.div`
-  margin: 0 auto 4.125rem;
-  display: flex;
-  align-items: center;
-  flex-flow: wrap;
+  grid-area: dashboard;
+  position: relative;
+  margin: 2.785rem auto 4.125rem;
+  height: 100%;
+  display: grid;
+  place-content: center;
 
   & > div {
+    margin: 0 auto;
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,11 +36,12 @@ const Details = styled.div`
       margin-bottom: 2rem;
       width: 100%;
       text-align: center;
-      font-size: clamp(2rem, 4vw, 3rem);
+      font-size: clamp(1.5rem, 2vw, 2.5rem);
+      line-height: 1;
     }
 
     & > img {
-      width: 40rem;
+      width: 30rem;
       height: auto;
       top: 0;
       border-radius: 3.125rem;
@@ -90,33 +95,38 @@ const Details = styled.div`
   }
 
   .go_back {
+    text-decoration: none;
+    position: absolute;
+    top: -10vh;
+    left: 8rem;
     margin: 2rem auto 0;
     padding: 1rem 2rem;
-    width: 40%;
-    text-align: center;
-    border: 1px solid #888;
+    width: 8.875rem;
+    height: 3.25rem;
+    border-radius: 25px;
+    display: grid;
+    place-content: center;
+    color: white;
+    border: 1px solid #3dbda7;
     border-radius: 2rem;
+    transition: all 0.4s ease-in-out;
 
     &:hover {
-      transition: all 0.4s ease-in-out;
-      background-color: #e2e2e2;
+      background-color: #3dbda7;
       color: #282828;
     }
   }
 `;
 
-const SaveGame = styled.div`
-  position: absolute;
-  top: calc(8.75rem + 8.75rem);
-  right: 0;
-  z-index: 100;
-`;
-
 const SaveBtn = styled.button`
-  position: relative;
-  width: 120px;
-  height: 42px;
-  border-radius: 73px;
+  position: absolute;
+  left: auto;
+  top: auto;
+  bottom: 10vh;
+  right: 30vw;
+  width: 8.875rem;
+  height: 3.25rem;
+  border-radius: 25px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -212,9 +222,7 @@ const GameDetails: React.FC = () => {
           Saved game to library
         </motion.p>
       </MsgContainer>
-      <SaveGame>
-        <SaveBtn onClick={() => handleClick()}>Save game</SaveBtn>
-      </SaveGame>
+      <SaveBtn onClick={() => handleClick()}>Save game</SaveBtn>
       <Details>
         {game ? (
           <div>

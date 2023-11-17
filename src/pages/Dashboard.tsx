@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard';
 import ProductCard from '../components/product-card/ProductCard';
 import RecentlyPlayed from '../components/recently-played/RecentlyPlayed';
-import RightSidebar from '../components/right-sidebar/RightSidebar';
-
 const DashboardContainer = styled.div`
   grid-area: dashboard;
   position: relative;
@@ -12,13 +10,13 @@ const DashboardContainer = styled.div`
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: repeat(9, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-template-rows: repeat(3, 1fr);
   gap: 2.875rem;
   grid-template-areas:
-    'product-card product-card product-card product-card product-card product-card dashboard-sidebar dashboard-sidebar dashboard-sidebar'
-    'gaming-gear gaming-gear gaming-gear recently-played recently-played recently-played dashboard-sidebar dashboard-sidebar dashboard-sidebar'
-    'gaming-gear gaming-gear gaming-gear recently-played recently-played recently-played dashboard-sidebar dashboard-sidebar dashboard-sidebar';
+    'product-card product-card product-card product-card product-card product-card'
+    'gaming-gear gaming-gear gaming-gear recently-played recently-played recently-played '
+    'gaming-gear gaming-gear gaming-gear recently-played recently-played recently-played ';
 `;
 
 const Featured = styled.div`
@@ -43,14 +41,6 @@ const RecentlyPlayedContainer = styled.div`
   background-color: transparent;
 `;
 
-const DashboardSidebar = styled.div`
-  padding: 0 2.875rem;
-  padding-bottom: 2.875rem;
-  min-width: 22.275rem;
-  width: 100%;
-  grid-area: dashboard-sidebar;
-  background-color: transparent;
-`;
 
 const Dashboard: FC = () => {
   return (
@@ -64,9 +54,6 @@ const Dashboard: FC = () => {
       <RecentlyPlayedContainer>
         <RecentlyPlayed />
       </RecentlyPlayedContainer>
-      <DashboardSidebar>
-        <RightSidebar />
-      </DashboardSidebar>
     </DashboardContainer>
   );
 };

@@ -8,10 +8,9 @@ import Online from './Online';
   children: ReactNode;
 } */
 
-
 const SidebarContainer = styled.div`
   max-width: 22.875rem;
-  height: 100%;
+  max-height: 52rem;
   width: 100%;
   position: relative;
   display: flex;
