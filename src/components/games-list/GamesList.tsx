@@ -4,12 +4,12 @@ import GameItem from './GameItem';
 import { GameItemProps } from '../../types/Types';
 
 interface GamesListProps {
-    games: GameItemProps[];
-  }
-
+  games: GameItemProps[];
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
 
 const GamesContainer = styled.ul`
-position: relative;
+  position: relative;
   margin-top: 2.625rem;
   display: flex;
   flex-wrap: wrap;
@@ -17,13 +17,14 @@ position: relative;
   list-style: none;
 `;
 
-
-const GamesList: React.FC<GamesListProps> = ({ games }) => {
+const GamesList: React.FC<GamesListProps> = ({ games, setModalOpen }) => {
   return (
     <>
       <GamesContainer>
         {games.length > 0 &&
-          games.map((game) => <GameItem game={game} key={game.id} />)}
+          games.map((game) => (
+            <GameItem game={game} key={game.id} setModalOpen={setModalOpen} />
+          ))}
       </GamesContainer>
     </>
   );

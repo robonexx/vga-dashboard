@@ -124,12 +124,18 @@ function App() {
         <Sidebar />
         <Routes>
           <Route path='/' element={<Dashboard />} />
-          <Route path='/gamedetails' element={<Gamedetails />} />
+          <Route path='/game/:gameId' element={<Gamedetails />} />
         </Routes>
         {modalOpen && (
           <Modal
             handleClose={close}
-            content={!isLoading ? <GamesList games={games} /> : <Loading />}
+            content={
+              !isLoading ? (
+                <GamesList games={games} setModalOpen={setModalOpen} />
+              ) : (
+                <Loading />
+              )
+            }
           ></Modal>
         )}
       </Main>

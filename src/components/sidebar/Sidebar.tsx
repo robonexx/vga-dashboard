@@ -9,6 +9,7 @@ import FriendsIcon from '../icons/FriendsIcon';
 import ChatIcon from '../icons/ChatIcon';
 import ShopIcon from '../icons/ShopIcon';
 import StarIcon from '../icons/StarIcon';
+import { Link } from 'react-router-dom';
 
 const SidebarWrapper = styled.div`
   grid-area: aside;
@@ -45,11 +46,13 @@ const Sidebar: FC = () => {
     <SidebarWrapper>
       <Logo />
       <SideNav>
-        <Icon
-          variant='primary'
-          onClick={() => console.log('hello world')}
-          iconSvg={<HomeIcon />}
-        />
+        <Link to='/'>
+          <Icon
+            variant='primary'
+            onClick={() => console.log('hello world')}
+            iconSvg={<HomeIcon />}
+          />
+        </Link>
         <Icon
           variant='primary'
           onClick={() => console.log('hello world')}

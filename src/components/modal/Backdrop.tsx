@@ -9,9 +9,9 @@ const BackdropContainer = styled(motion.div)`
   right: 2.5vw;
   height: 90vh;
   width: 95vw;
-  background-color: #1D1E22;
+  background-color: #1d1e22;
   border-radius: 3.125rem;
-  border: 2px solid #3DBDA780;
+  border: 2px solid #3dbda780;
   display: flex;
   align-items: center;
   align-self: center;
@@ -22,6 +22,7 @@ const BackdropContainer = styled(motion.div)`
 interface BackdropProps {
   onClick: () => void;
   children: React.ReactNode;
+  variant?: string;
 }
 
 const Backdrop: React.FC<BackdropProps> = ({ children, onClick }) => {

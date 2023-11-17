@@ -52,9 +52,9 @@ const GameCard = styled.li`
     z-index: 2;
 
     & h4 {
-      height: 3rem;
+      height: fit-content;
       margin-bottom: 2rem;
-      font-size: 2rem;
+      font-size: 1rem;
       overflow: hidden;
     }
 
@@ -103,9 +103,10 @@ const GameCard = styled.li`
 
 interface GamesSingeItemProps {
   game: GameItemProps;
+  setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const GameItem: React.FC<GamesSingeItemProps> = ({ game }) => {
+const GameItem: React.FC<GamesSingeItemProps> = ({ game, setModalOpen }) => {
   return (
     <GameCard className='game'>
       <img src={game.background_image} alt={game.name} />
@@ -140,7 +141,7 @@ const GameItem: React.FC<GamesSingeItemProps> = ({ game }) => {
           ))}
         </div>
       </div>
-      <Link to={`/games/${game.id}`}>
+      <Link to={`/game/${game.id}`} onClick={() => setModalOpen(false)}>
         <p>Read more...</p>
       </Link>
     </GameCard>

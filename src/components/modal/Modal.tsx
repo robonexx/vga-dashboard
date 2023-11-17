@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 import Backdrop from './Backdrop';
 
-const ModalContainer = styled(motion.div)`
+const ModalContainer = styled(motion.div).attrs(() => ({ as: 'div' }))`
   width: 80%;
   height: 80%;
   padding: 2rem;
@@ -17,8 +17,8 @@ const ModalContainer = styled(motion.div)`
   overflow-y: scroll;
 
   &::-webkit-scrollbar {
-      display: none;
-    }
+    display: none;
+  }
 `;
 
 const CloseButton = styled.button`
