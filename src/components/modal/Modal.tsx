@@ -14,12 +14,11 @@ const ModalContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
+  overflow-y: scroll;
 
-const GlassBackground = styled.div`
-  background-color: rgba(255, 255, 255, 0.055);
-  backdrop-filter: blur(3px);
-  color: #dbdbdb;
+  &::-webkit-scrollbar {
+      display: none;
+    }
 `;
 
 const CloseButton = styled.button`
@@ -90,7 +89,7 @@ const Modal: React.FC<ModalProps> = ({ handleClose, content }) => {
         <CloseButton onClick={handleClose}>
           <FiX />
         </CloseButton>
-        <GlassBackground>{content}</GlassBackground>
+        {content}
       </ModalContainer>
     </Backdrop>
   );

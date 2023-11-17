@@ -12,6 +12,9 @@ import Bell from './components/icons/Bell';
 import PaperPlane from './components/icons/PaperPlane';
 import ProfileImage from './components/profileimage/ProfileImage';
 import Modal from './components/modal/Modal';
+import GamesList from './components/games-list/GamesList';
+import Loading from './components/loading/Loading';
+import { GameItemProps } from './types/Types';
 
 const Main = styled.main`
   position: relative;
@@ -33,8 +36,7 @@ const API_KEY: string = import.meta.env.VITE_APP_API_KEY as string;
 const API_GAMES: string = `${API_URL}?key=${API_KEY}`;
 
 function App() {
-  const [games, setGames] = useState<unknown[]>([]);
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [games, setGames] = useState<GameItemProps[]>([]);
   const [isLoading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
@@ -43,9 +45,8 @@ function App() {
   const close = () => setModalOpen(false);
   const open = () => setModalOpen(true);
 
-
-
   const getGames = async (URL: string) => {
+    setLoading(true);
     try {
       const res = await fetch(URL);
       const data = await res.json();
@@ -54,6 +55,7 @@ function App() {
         return;
       } else {
         setGames(data.results);
+        setLoading(false);
       }
     } catch (error) {
       console.log(error + 'something went wrong');
@@ -66,7 +68,7 @@ function App() {
       getGames(`${API_URL}?key=${API_KEY}&search=${searchQuery}`);
       setSearchQuery('');
       console.log(games);
-      open()
+      open();
     }
   };
 
@@ -94,7 +96,7 @@ function App() {
     fetchData();
   }, []);
 
- /*  console.log(games); */
+  /*  console.log(games); */
 
   return (
     <BrowserRouter>
@@ -125,11 +127,11 @@ function App() {
           <Route path='/gamedetails' element={<Gamedetails />} />
         </Routes>
         {modalOpen && (
-        <Modal
-          handleClose={close}
-          content={''}
-        ></Modal>
-      )}
+          <Modal
+            handleClose={close}
+            content={!isLoading ? <GamesList games={games} /> : <Loading />}
+          ></Modal>
+        )}
       </Main>
     </BrowserRouter>
   );

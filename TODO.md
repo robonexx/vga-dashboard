@@ -18,6 +18,9 @@
 - [x] small cards for library and online friends (image + title, subtitle, icon)
 - [x] email card / container
 - [x] favicon, title
+- [x] Add modal
+- [] Games list to show search results
+- [] Game item to show in search result (new card)
 
 - Added api to search bar to connect with rawg.io
 
