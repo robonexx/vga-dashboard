@@ -37,8 +37,8 @@ const OnlineContainer = styled.div`
 const Online: React.FC = () => {
   return (
     <OnlineContainer>
-      {mockData.map(({ name, img, playing }) => (
-        <OnlineCard key={name} name={name} img={img} playing={playing} />
+      {mockData.map(({ name, img, playing }, i) => (
+        <OnlineCard key={i} name={name} img={img} playing={playing} />
       ))}
     </OnlineContainer>
   );

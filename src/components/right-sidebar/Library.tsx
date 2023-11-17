@@ -40,8 +40,8 @@ const LibraryContainer = styled.div`
   flex-direction: column;
 
   &::-webkit-scrollbar {
-      display: none;
-    }
+    display: none;
+  }
 
   &:hover {
     cursor: pointer;
@@ -51,8 +51,8 @@ const LibraryContainer = styled.div`
 const Library: React.FC = () => {
   return (
     <LibraryContainer>
-      {data.map(({ title, platforms, image }) => (
-        <GameCard title={title} platforms={platforms} image={image} />
+      {data.map(({ title, platforms, image }, i) => (
+        <GameCard key={i} title={title} platforms={platforms} image={image} />
       ))}
     </LibraryContainer>
   );
