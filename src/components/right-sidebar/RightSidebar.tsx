@@ -1,13 +1,16 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import styled from 'styled-components';
+import Library from './Library';
+import Mail from './Mail';
+import Online from './Online';
 
-interface RightSideProps {
+/* interface RightSideProps {
   children: ReactNode;
-}
+} */
+
 
 const SidebarContainer = styled.div`
-  max-height: 52rem;
-  max-width: 20.875rem;
+  max-width: 22.875rem;
   height: 100%;
   width: 100%;
   position: relative;
@@ -30,15 +33,25 @@ const SidebarContainer = styled.div`
     z-index: 3;
     pointer-events: none;
   }
+
+  > p {
+    padding-top: 0.5rem;
+    padding-left: 1rem;
+    color: #888;
+  }
 `;
 
-const RightSide: React.FC<RightSideProps> = ({ children }) => {
+const RightSidebar: React.FC = () => {
   return (
     <SidebarContainer>
-      {children}
+      <p>Library</p>
+      <Library />
+      <Mail />
+      <p>Online</p>
+      <Online />
       <div className='circle'></div>
     </SidebarContainer>
   );
 };
 
-export default RightSide;
+export default RightSidebar;

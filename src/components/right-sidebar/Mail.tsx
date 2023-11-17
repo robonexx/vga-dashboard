@@ -2,9 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 
 const MailContainer = styled.div`
-  margin: 2rem 0;
   padding: 1rem;
-  width: 18.25rem;
+  width: 100%;
   height: unset;
   display: flex;
   flex-direction: column;

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard';
 import ProductCard from '../components/product-card/ProductCard';
 import RecentlyPlayed from '../components/recently-played/RecentlyPlayed';
+import RightSidebar from '../components/right-sidebar/RightSidebar';
 
 const DashboardContainer = styled.div`
   grid-area: dashboard;
@@ -44,13 +45,12 @@ const RecentlyPlayedContainer = styled.div`
 `;
 
 const DashboardSidebar = styled.div`
-  padding: 2.875rem;
-  min-width: 20rem;
+  padding: 0 2.875rem;
+  padding-bottom: 2.875rem;
+  min-width: 22.275rem;
   width: 100%;
   grid-area: dashboard-sidebar;
-  grid-column: span 3;
-  background-color: #c0c0c0;
-  max-height: 51.25rem;
+  background-color: transparent;
 `;
 
 const Dashboard: FC = () => {
@@ -66,8 +66,7 @@ const Dashboard: FC = () => {
         <RecentlyPlayed />
       </RecentlyPlayedContainer>
       <DashboardSidebar>
-        {/* Content for the Sidebar */}
-        <h2>Sidebar</h2>
+        <RightSidebar />
       </DashboardSidebar>
     </DashboardContainer>
   );
