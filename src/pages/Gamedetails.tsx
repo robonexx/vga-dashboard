@@ -152,12 +152,13 @@ const SaveBtn = styled.button`
 
 const MsgContainer = styled.div`
   position: absolute;
-  top: 27.5%;
-  right: 12.5vw;
+  top: auto;
+  bottom: 40vh;
+  left: auto;
+  right: 28vw;
   & > p {
-    min-width: 300px;
+    max-width: 300px;
     padding: 1rem 2rem;
-    position: absolute;
     color: white;
     border-radius: 2rem;
     border: 1px solid #888;
@@ -180,7 +181,7 @@ const GameDetails: React.FC = () => {
       try {
         const response = await fetch(`${API_URL}/${gameId}?key=${API_KEY}`);
         const data = await response.json();
-        setGame(data); // Set the fetched game to the state
+        setGame(data);
         console.log(data);
       } catch (error) {
         console.error('Error fetching game details:', error);
@@ -232,9 +233,9 @@ const GameDetails: React.FC = () => {
               <span>Score: {game.rating}/5</span>
               <span className='date'>Relased: {game.released}</span>
               <div>
-                {game.parent_platforms.map((p) => (
-                  <>
-                    <span className='icon' key={game.id + p.platform.name}>
+                {game.parent_platforms.map((p, index) => (
+                  <React.Fragment key={index}>
+                    <span className='icon'>
                       {p.platform.name ? (
                         p.platform.name === 'PC' ? (
                           <RiWindowsFill />
@@ -257,7 +258,7 @@ const GameDetails: React.FC = () => {
                         p.platform.name
                       )}
                     </span>
-                  </>
+                  </React.Fragment>
                 ))}
               </div>
             </div>
