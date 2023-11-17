@@ -20,7 +20,7 @@ const API_KEY: string = import.meta.env.VITE_APP_API_KEY as string;
 const Details = styled.div`
   grid-area: dashboard;
   position: relative;
-  margin: 2.785rem auto 4.125rem;
+  margin: 0 auto 4.125rem;
   height: 100%;
   display: grid;
   place-content: center;
@@ -97,8 +97,8 @@ const Details = styled.div`
   .go_back {
     text-decoration: none;
     position: absolute;
-    top: -10vh;
-    left: 8rem;
+    top: 0vh;
+    left: 0rem;
     margin: 2rem auto 0;
     padding: 1rem 2rem;
     width: 8.875rem;
