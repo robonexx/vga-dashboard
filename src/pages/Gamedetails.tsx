@@ -18,7 +18,7 @@ const API_URL: string = import.meta.env.VITE_APP_API_URL as string;
 const API_KEY: string = import.meta.env.VITE_APP_API_KEY as string;
 
 const Details = styled.div`
-  max-width: 800px;
+  margin: 0 auto 4.125rem;
   display: flex;
   align-items: center;
   flex-flow: wrap;
@@ -37,9 +37,10 @@ const Details = styled.div`
 
     & > img {
       width: 40rem;
-      height: 40%;
+      height: auto;
       top: 0;
       border-radius: 3.125rem;
+      object-fit: cover;
     }
 
     & > h4 {
@@ -82,7 +83,7 @@ const Details = styled.div`
 
     .thumbnail {
       margin: 1rem;
-      max-width: 200px;
+      max-width: 25%;
       height: auto;
       border-radius: 2rem;
     }
@@ -160,7 +161,7 @@ const variants = {
 
 const GameDetails: React.FC = () => {
   const [showMsg, setShowMsg] = useState(false);
-  const [game, setGame] = useState<GameItemProps | undefined>();
+  const [game, setGame] = useState<GameItemProps>();
   const { gameId } = useParams();
   console.log(gameId);
 
@@ -215,7 +216,7 @@ const GameDetails: React.FC = () => {
         <SaveBtn onClick={() => handleClick()}>Save game</SaveBtn>
       </SaveGame>
       <Details>
-        {game && (
+        {game ? (
           <div>
             <h1>{game.name.toUpperCase()}</h1>
             <img src={game.background_image} alt={game.name} />
@@ -253,17 +254,14 @@ const GameDetails: React.FC = () => {
               </div>
             </div>
             <div className='thumbnails'>
-              {game.short_screenshots ?
-                game.short_screenshots.map((s, i) => (
-                  <img
-                    className='thumbnail'
-                    src={s.image}
-                    alt='thumbnail'
-                    key={i}
-                  />
-                )) : <div>No screenshots</div>}
+              {game.short_screenshots &&
+                game.short_screenshots.map((s) => (
+                  <img className='thumbnail' src={s.image} alt='thumbnail' />
+                ))}
             </div>
           </div>
+        ) : (
+          <div>Loading...</div>
         )}
         <Link to='/' className='go_back'>
           {' '}

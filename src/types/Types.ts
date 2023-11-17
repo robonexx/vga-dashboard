@@ -5,7 +5,7 @@ export interface GameItemProps {
     name: string;
     rating: number;
     parent_platforms: Array<{ platform: { name: string } }>;
-    short_screenshots?: Array<{ image: string }> | undefined;
+    short_screenshots?: Array<{ image: string }>;
     released?: string;
   }
   
