@@ -30,6 +30,7 @@ const Main = styled.main`
     'aside dashboard dashboard dashboard dashboard rightsidebar rightsidebar'
     'aside dashboard dashboard dashboard dashboard rightsidebar rightsidebar '
     'aside dashboard dashboard dashboard dashboard  rightsidebar rightsidebar';
+  overflow: hidden;
 `;
 
 const DashboardSidebar = styled.div`

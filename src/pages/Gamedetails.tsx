@@ -95,7 +95,6 @@ const Details = styled.div`
   }
 
   .go_back {
-    text-decoration: none;
     position: absolute;
     top: 0vh;
     left: 0rem;
@@ -106,7 +105,7 @@ const Details = styled.div`
     border-radius: 25px;
     display: grid;
     place-content: center;
-    color: white;
+
     border: 1px solid #3dbda7;
     border-radius: 2rem;
     transition: all 0.4s ease-in-out;
@@ -115,10 +114,15 @@ const Details = styled.div`
       background-color: #3dbda7;
       color: #282828;
     }
+
+    > a {
+      text-decoration: none;
+      color: white;
+    }
   }
 `;
 
-const SaveBtn = styled.button`
+const SaveBtn = styled(motion.button)`
   position: absolute;
   left: auto;
   top: auto;
@@ -156,12 +160,14 @@ const MsgContainer = styled.div`
   bottom: 40vh;
   left: auto;
   right: 28vw;
+
   & > p {
     max-width: 300px;
     padding: 1rem 2rem;
     color: white;
     border-radius: 2rem;
     border: 1px solid #888;
+    opacity: 0;
   }
 `;
 
@@ -223,19 +229,56 @@ const GameDetails: React.FC = () => {
           Saved game to library
         </motion.p>
       </MsgContainer>
-      <SaveBtn onClick={() => handleClick()}>Save game</SaveBtn>
+      <SaveBtn
+        onClick={() => handleClick()}
+        initial={{ opacity: 0, y: 300 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.4, delay: 1 }}
+      >
+        Save game
+      </SaveBtn>
       <Details>
         {game ? (
           <div>
-            <h1>{game.name.toUpperCase()}</h1>
-            <img src={game.background_image} alt={game.name} />
+            <motion.h1
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.4 }}
+            >
+              {game.name.toUpperCase()}
+            </motion.h1>
+            <motion.img
+              src={game.background_image}
+              alt={game.name}
+              initial={{ x: -200, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.3 }}
+            />
             <div className='game_info'>
-              <span>Score: {game.rating}/5</span>
-              <span className='date'>Relased: {game.released}</span>
+              <motion.span
+                initial={{ x: -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.5 }}
+              >
+                Score: {game.rating}/5
+              </motion.span>
+              <motion.span
+                className='date'
+                initial={{ x: -200, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.7 }}
+              >
+                Relased: {game.released}
+              </motion.span>
               <div>
                 {game.parent_platforms.map((p, index) => (
                   <React.Fragment key={index}>
-                    <span className='icon'>
+                    <motion.span
+                      className='icon'
+                      initial={{ y: 200, opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 0.4, delay: 0.9 }}
+                    >
                       {p.platform.name ? (
                         p.platform.name === 'PC' ? (
                           <RiWindowsFill />
@@ -257,7 +300,7 @@ const GameDetails: React.FC = () => {
                       ) : (
                         p.platform.name
                       )}
-                    </span>
+                    </motion.span>
                   </React.Fragment>
                 ))}
               </div>
@@ -272,10 +315,14 @@ const GameDetails: React.FC = () => {
         ) : (
           <div>Loading...</div>
         )}
-        <Link to='/' className='go_back'>
-          {' '}
-          Go back{' '}
-        </Link>
+        <motion.div
+          className='go_back'
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, delay: 1 }}
+        >
+          <Link to='/'> Go back </Link>
+        </motion.div>
       </Details>
     </>
   );
