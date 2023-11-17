@@ -17,6 +17,7 @@
 - [x] rightside sidebar
 - [x] small cards for library and online friends (image + title, subtitle, icon)
 - [x] email card / container
+- [x] favicon, title
 
 - Added api to search bar to connect with rawg.io
 
