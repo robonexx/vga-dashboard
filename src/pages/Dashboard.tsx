@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import styled from 'styled-components';
-
 import FeaturedProductCard from '../components/featured-product-card/FeaturedProductCard';
 import ProductCard from '../components/product-card/ProductCard';
 import RecentlyPlayed from '../components/recently-played/RecentlyPlayed';

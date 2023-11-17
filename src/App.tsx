@@ -11,6 +11,7 @@ import Icon from './components/icons/Icon';
 import Bell from './components/icons/Bell';
 import PaperPlane from './components/icons/PaperPlane';
 import ProfileImage from './components/profileimage/ProfileImage';
+import Modal from './components/modal/Modal';
 
 const Main = styled.main`
   position: relative;
@@ -37,6 +38,13 @@ function App() {
   const [isLoading, setLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const close = () => setModalOpen(false);
+  const open = () => setModalOpen(true);
+
+
+
   const getGames = async (URL: string) => {
     try {
       const res = await fetch(URL);
@@ -58,6 +66,7 @@ function App() {
       getGames(`${API_URL}?key=${API_KEY}&search=${searchQuery}`);
       setSearchQuery('');
       console.log(games);
+      open()
     }
   };
 
@@ -115,6 +124,12 @@ function App() {
           <Route path='/' element={<Dashboard />} />
           <Route path='/gamedetails' element={<Gamedetails />} />
         </Routes>
+        {modalOpen && (
+        <Modal
+          handleClose={close}
+          content={''}
+        ></Modal>
+      )}
       </Main>
     </BrowserRouter>
   );
