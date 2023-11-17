@@ -12,13 +12,13 @@ import SmallCard from './SmallCard';
 
 const Container = styled.div`
   position: relative;
-  padding: 1rem 0;
-  width: 100%;
+  padding: 0;
   width: 100%;
   height: 22.5rem;
   overflow: hidden;
 
   & > .inner {
+    padding-bottom: 2.75rem;
     position: relative;
     height: 100%;
     display: flex;
