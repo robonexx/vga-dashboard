@@ -112,6 +112,9 @@ function App() {
 
   return (
     <BrowserRouter>
+      <div className='overlay'>
+        Desktop only!
+       </div>
       <Main>
         <Header>
           <SearchBar
